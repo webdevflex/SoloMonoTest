@@ -18,8 +18,11 @@
 	  <meta charset="utf-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="main.css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 
 		<style type="text/css">
 			body {
@@ -43,6 +46,28 @@
 				 -webkit-box-shadow: 0 0 20px rgba(43,45,56,.06);
 				 box-shadow: 0 0 20px rgba(43,45,56,.06);
 			 }
+			 /* decision */
+			 .open .caret{
+				transform: rotate(180deg);
+			 }
+			 .dropdown-menu a  {
+				width: 100%;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				cursor:pointer;
+			 }
+			 .submenu a{
+				width: 100%;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				cursor:pointer;
+			 }
+			
+
+
+			
   </style>
 	</head>
 	<body>
@@ -60,6 +85,11 @@
 				'Комп`ютери',
 				'Розумні годинники'
 			];
+			
+			$categories_item0 = $categories[0];
+			$categories_item1 = $categories[1];
+			$categories_item2 = $categories[2];
+			$categories_item3 = $categories[3];
 
 			$sub_categories = [
 				'Ноутбуки',
@@ -70,6 +100,7 @@
 				'Книги',
 				'Відеокарти'
 			];
+			
 	 ?>
 
 
@@ -83,13 +114,33 @@
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse">
 		      <ul class="nav navbar-nav">
-		        <li><a href="#">Кабінет</a></li>
+		        <li><a class="link" href="#">Кабінет</a></li>
 		        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Категорії <span class="caret"></span></a>
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Кaтегорії <span class="caret"></span></a>
 		          <ul class="dropdown-menu">
+				
+				  
+					  <?php
+	
+									echo '<li>'.'<a>'.$categories_item0.'</a>'.'</li>';
+									echo '<li>'.'<a>'.$categories_item1.'</a>'.'</li>';
+									echo '<li class = "dropdown-menu-item">'.'<a>'.$categories_item2.'<span class="caret"></span>'.
+									'<ul class = "submenu">'.
+										'<li>'.'<a>'.$sub_categories[0].'</a>'.'</li>'.
+										'<li>'.'<a>'.$sub_categories[1].'</a>'.'</li>'.
+										'<li>'.'<a>'.$sub_categories[2].'</a>'.'</li>'.
+										'<li>'.'<a>'.$sub_categories[3].'</a>'.'</li>'.
+										'<li>'.'<a>'.$sub_categories[4].'</a>'.'</li>'.
+										'<li>'.'<a>'.$sub_categories[5].'</a>'.'</li>'.
+									'</ul>'.
+										'</a>'.
+											'</li>';
+									echo '<li>'.'<a>'.$categories_item3.'</a>'.'</li>';
+									
+								?>
 		            <li><a href="#">Action</a></li>
 		            <li><a href="#">Another action</a></li>
-		            <li><a href="#">Something else here</a></li>
+		            <li><a href="#">Something else here else here</a></li>
 		            <li role="separator" class="divider"></li>
 		            <li><a href="#">Separated link</a></li>
 		            <li role="separator" class="divider"></li>
@@ -101,6 +152,8 @@
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
+
+		
 
 <div class="jumbotron text-center">
 	<h1><?php echo '<b>'.$info['title'].'</b>'; ?></h1>
@@ -119,6 +172,7 @@
 									foreach ($categories as $category) {
 											echo '<li>'.$category.'</li>';
 									}
+									
 								?>
 							</ul>
 						</li>
@@ -146,9 +200,26 @@
             <div class="col-xs-12">
                 <p><b>* Всі завдання потрібно виконати в цьому ж документі</b></p>
             </div>
+			<div class= "col-xs-12 form-wrapper">
+				
+				<form class="form" action="/login" method="post">
+					<p class="form-title">First Name <span>Setting</span></p>					
+					<label>Label<input type="text" name="username" placeholder = "First Name"></label>	
+					
+					<label>Placeholder<input type="text" name="username">	</label>					
+					
+					<label>Required<input type="checkbox">
+					
+				</label>					
+				</form>
+			</div>
 		  </div>
 		</div>
 
+
+
+		
+		<script src ="script.js"></script>
 	</body>
 </html>
 
