@@ -154,7 +154,9 @@ if (isset($_GET['download']) and $_GET['download'] == 'true') {
 				align-items: center;
 
 			}
-
+			.form label:nth-of-type(1) {
+				margin-bottom: 10px;
+			}
 			.form label:nth-of-type(3) {
 				justify-content: start;
 			}
